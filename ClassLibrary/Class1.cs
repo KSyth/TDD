@@ -14,24 +14,17 @@ public class SearchCity
         var cityFind = new List<string>();
         
         if (search.Length < 2)
-        {
             throw new NotFoundException();
+        if (search.Length >= 2)
+        {
+            cityFind = _cities.Where(city => city.Contains(search)).ToList();
         }
-        // else if (search.Length >= 2)
-        // {
-        //     foreach (var city in _cities)
-        //     {
-        //         if (city.Contains(search))
-        //             Console.WriteLine(city);
-        //             // cityFind.Add(city);
-        //     }
-        // }
         // else if (search == "*")
         // {
         //     cityFind = new List<string>(_cities);
         // }
         //
-        // // Console.WriteLine("[{0}]", string.Join(", ", cityFind));
+        Console.WriteLine("[{0}]", string.Join(", ", cityFind));
         return cityFind;
     }
     
